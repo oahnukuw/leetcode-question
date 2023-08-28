@@ -63,7 +63,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
+  package leetcode.editor.cn;
   public class P26RemoveDuplicatesFromSortedArray{
       public static void main(String[] args) {
            Solution solution = new P26RemoveDuplicatesFromSortedArray().new Solution();

@@ -56,7 +56,7 @@
 //
 
 
-package com.koneho.leetcode.editor.en;
+package leetcode.editor.cn;
 
 import java.util.HashMap;
 import java.util.Map;

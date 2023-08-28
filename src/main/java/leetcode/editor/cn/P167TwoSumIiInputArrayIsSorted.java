@@ -52,9 +52,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
-
-  import java.lang.annotation.Target;
+  package leetcode.editor.cn;
 
   public class P167TwoSumIiInputArrayIsSorted{
       public static void main(String[] args) {

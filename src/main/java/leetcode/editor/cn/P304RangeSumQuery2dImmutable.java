@@ -60,7 +60,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
+  package leetcode.editor.cn;
   public class P304RangeSumQuery2dImmutable{
       public static void main(String[] args) {
       }

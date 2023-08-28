@@ -36,9 +36,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
-
-  import java.util.Map;
+  package leetcode.editor.cn;
 
   public class P5LongestPalindromicSubstring{
       public static void main(String[] args) {

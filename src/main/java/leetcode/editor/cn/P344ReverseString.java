@@ -36,7 +36,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
+  package leetcode.editor.cn;
   public class P344ReverseString{
       public static void main(String[] args) {
            Solution solution = new P344ReverseString().new Solution();

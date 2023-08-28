@@ -37,7 +37,7 @@
 //
 
   
-  package com.koneho.leetcode.editor.en;
+  package leetcode.editor.cn;
   public class P83RemoveDuplicatesFromSortedList{
       public static void main(String[] args) {
            Solution solution = new P83RemoveDuplicatesFromSortedList().new Solution();

@@ -51,7 +51,7 @@
 //
 
 
-package com.koneho.leetcode.editor.en;
+package leetcode.editor.cn;
 
 public class P303RangeSumQueryImmutable {
     public static void main(String[] args) {

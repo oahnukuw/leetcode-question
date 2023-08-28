@@ -48,7 +48,7 @@
 //
 
 
-package com.koneho.leetcode.editor.en;
+package leetcode.editor.cn;
 
 public class P2AddTwoNumbers {
     public static void main(String[] args) {
