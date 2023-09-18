@@ -38,18 +38,19 @@
 
   
   package leetcode.editor.cn;
+
   public class P83RemoveDuplicatesFromSortedList{
       public static void main(String[] args) {
            Solution solution = new P83RemoveDuplicatesFromSortedList().new Solution();
       }
 
-  public class ListNode {
-      int val;
-      ListNode next;
-      ListNode() {}
-      ListNode(int val) { this.val = val; }
-      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-  }
+//  public class ListNode {
+//      int val;
+//      ListNode next;
+//      ListNode() {}
+//      ListNode(int val) { this.val = val; }
+//      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+//  }
       //leetcode submit region begin(Prohibit modification and deletion)
 /**
  * Definition for singly-linked list.
