@@ -92,8 +92,8 @@ class Solution {
             // enlarge window
             right++;
         // Shrink window when the count of valid letter is equal to the size of letters that string p needs. Update result.
-            while(valid == need.size()){
-                if(right - left == p.length()){
+            while(right - left >= p.length()){
+                if(valid == need.size()){
                     resultList.add(left);
                 }
                 // letter is gonna out of window

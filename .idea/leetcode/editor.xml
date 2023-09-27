@@ -28,10 +28,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P167TwoSumIiInputArrayIsSorted.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P167TwoSumIiInputArrayIsSorted.md" />
               <option name="frontendQuestionId" value="leetcode.cn167" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted.java" />
               <option name="titleSlug" value="two-sum-ii-input-array-is-sorted" />
             </LeetcodeEditor>
           </value>
@@ -39,10 +39,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P1TwoSum.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P1TwoSum.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P1TwoSum.md" />
               <option name="frontendQuestionId" value="leetcode.cn1" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P1TwoSum.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P1TwoSum.java" />
               <option name="titleSlug" value="two-sum" />
             </LeetcodeEditor>
           </value>
@@ -50,10 +50,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P26RemoveDuplicatesFromSortedArray.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P26RemoveDuplicatesFromSortedArray.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P26RemoveDuplicatesFromSortedArray.md" />
               <option name="frontendQuestionId" value="leetcode.cn26" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P26RemoveDuplicatesFromSortedArray.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P26RemoveDuplicatesFromSortedArray.java" />
               <option name="titleSlug" value="remove-duplicates-from-sorted-array" />
             </LeetcodeEditor>
           </value>
@@ -61,10 +61,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P27RemoveElement.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P27RemoveElement.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P27RemoveElement.md" />
               <option name="frontendQuestionId" value="leetcode.cn27" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P27RemoveElement.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P27RemoveElement.java" />
               <option name="titleSlug" value="remove-element" />
             </LeetcodeEditor>
           </value>
@@ -116,10 +116,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P3LongestSubstringWithoutRepeatingCharacters.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P3LongestSubstringWithoutRepeatingCharacters.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P3LongestSubstringWithoutRepeatingCharacters.md" />
               <option name="frontendQuestionId" value="leetcode.cn3" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P3LongestSubstringWithoutRepeatingCharacters.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P3LongestSubstringWithoutRepeatingCharacters.java" />
               <option name="titleSlug" value="longest-substring-without-repeating-characters" />
             </LeetcodeEditor>
           </value>
@@ -127,10 +127,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P438FindAllAnagramsInAString.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P438FindAllAnagramsInAString.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P438FindAllAnagramsInAString.md" />
               <option name="frontendQuestionId" value="leetcode.cn438" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P438FindAllAnagramsInAString.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P438FindAllAnagramsInAString.java" />
               <option name="titleSlug" value="find-all-anagrams-in-a-string" />
             </LeetcodeEditor>
           </value>
@@ -138,10 +138,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P567PermutationInString.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P567PermutationInString.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P567PermutationInString.md" />
               <option name="frontendQuestionId" value="leetcode.cn567" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P567PermutationInString.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P567PermutationInString.java" />
               <option name="titleSlug" value="permutation-in-string" />
             </LeetcodeEditor>
           </value>
@@ -149,10 +149,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P5LongestPalindromicSubstring.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P5LongestPalindromicSubstring.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P5LongestPalindromicSubstring.md" />
               <option name="frontendQuestionId" value="leetcode.cn5" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P5LongestPalindromicSubstring.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P5LongestPalindromicSubstring.java" />
               <option name="titleSlug" value="longest-palindromic-substring" />
             </LeetcodeEditor>
           </value>
@@ -160,10 +160,10 @@
         <entry key="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P76MinimumWindowSubstring.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/doc/content/P76MinimumWindowSubstring.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P76MinimumWindowSubstring.md" />
               <option name="frontendQuestionId" value="leetcode.cn76" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P76MinimumWindowSubstring.java" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P76MinimumWindowSubstring.java" />
               <option name="titleSlug" value="minimum-window-substring" />
             </LeetcodeEditor>
           </value>
@@ -176,6 +176,149 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/src/main/java/com/koneho/leetcode/editor/cn/P剑指 Offer 48ZuiChangBuHanZhongFuZiFuDeZiZiFuChuanLcof.java" />
               <option name="titleSlug" value="zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P104MaximumDepthOfBinaryTree.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P104MaximumDepthOfBinaryTree.md" />
+              <option name="frontendQuestionId" value="leetcode.cn104" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P104MaximumDepthOfBinaryTree.java" />
+              <option name="titleSlug" value="maximum-depth-of-binary-tree" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P167TwoSumIiInputArrayIsSorted.md" />
+              <option name="frontendQuestionId" value="leetcode.cn167" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted.java" />
+              <option name="titleSlug" value="two-sum-ii-input-array-is-sorted" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P1TwoSum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P1TwoSum.md" />
+              <option name="frontendQuestionId" value="leetcode.cn1" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P1TwoSum.java" />
+              <option name="titleSlug" value="two-sum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P26RemoveDuplicatesFromSortedArray.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P26RemoveDuplicatesFromSortedArray.md" />
+              <option name="frontendQuestionId" value="leetcode.cn26" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P26RemoveDuplicatesFromSortedArray.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P27RemoveElement.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P27RemoveElement.md" />
+              <option name="frontendQuestionId" value="leetcode.cn27" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P27RemoveElement.java" />
+              <option name="titleSlug" value="remove-element" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P283MoveZeroes.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P283MoveZeroes.md" />
+              <option name="frontendQuestionId" value="leetcode.cn283" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P283MoveZeroes.java" />
+              <option name="titleSlug" value="move-zeroes" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P3LongestSubstringWithoutRepeatingCharacters.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P3LongestSubstringWithoutRepeatingCharacters.md" />
+              <option name="frontendQuestionId" value="leetcode.cn3" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P3LongestSubstringWithoutRepeatingCharacters.java" />
+              <option name="titleSlug" value="longest-substring-without-repeating-characters" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P438FindAllAnagramsInAString.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P438FindAllAnagramsInAString.md" />
+              <option name="frontendQuestionId" value="leetcode.cn438" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P438FindAllAnagramsInAString.java" />
+              <option name="titleSlug" value="find-all-anagrams-in-a-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P567PermutationInString.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P567PermutationInString.md" />
+              <option name="frontendQuestionId" value="leetcode.cn567" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P567PermutationInString.java" />
+              <option name="titleSlug" value="permutation-in-string" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P5LongestPalindromicSubstring.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P5LongestPalindromicSubstring.md" />
+              <option name="frontendQuestionId" value="leetcode.cn5" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P5LongestPalindromicSubstring.java" />
+              <option name="titleSlug" value="longest-palindromic-substring" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P76MinimumWindowSubstring.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P76MinimumWindowSubstring.md" />
+              <option name="frontendQuestionId" value="leetcode.cn76" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P76MinimumWindowSubstring.java" />
+              <option name="titleSlug" value="minimum-window-substring" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P83RemoveDuplicatesFromSortedList.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P83RemoveDuplicatesFromSortedList.md" />
+              <option name="frontendQuestionId" value="leetcode.cn83" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P83RemoveDuplicatesFromSortedList.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-list" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P83_RemoveDuplicatesFromSortedList.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/doc/content/P83RemoveDuplicatesFromSortedList.md" />
+              <option name="frontendQuestionId" value="leetcode.cn83" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/src/main/java/leetcode/editor/cn/P83RemoveDuplicatesFromSortedList.java" />
+              <option name="titleSlug" value="remove-duplicates-from-sorted-list" />
             </LeetcodeEditor>
           </value>
         </entry>

@@ -46,12 +46,14 @@
 
 <div id="labuladong"><hr>
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 已更新到 V2.0；第 13 期刷题打卡 [开始报名](https://mp.weixin.qq.com/s/eUG2OOzY3k_ZTz-CFvtv5Q)。**
+**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员，全新纸质书[《labuladong 的算法笔记》](https://labuladong.gitee.io/algo/images/book/book_intro_qrcode.jpg) 出版，签名版限时半价！**
 
 
 
-<p><strong><a href="https://labuladong.github.io/article?qno=167" target="_blank">⭐️labuladong 题解</a></strong></p>
+<p><strong><a href="https://labuladong.gitee.io/article/slug.html?slug=two-sum-ii-input-array-is-sorted" target="_blank">⭐️labuladong 题解</a></strong></p>
 </div>
+
+
 
 
 

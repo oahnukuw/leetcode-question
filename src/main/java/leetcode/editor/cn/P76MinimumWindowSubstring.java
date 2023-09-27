@@ -71,55 +71,94 @@ public class P76MinimumWindowSubstring {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String minWindow(String s, String t) {
-            // record what character and count of it is needed for solution
-            Map<Character, Integer> need = new HashMap<>(1 << 1);
-            // record the count of effective character in the window
-            Map<Character, Integer> window = new HashMap<>(1 << 1);
-            for (int i = 0; i < t.length(); i++) {
-                char ct = t.charAt(i);
-                need.put(ct, need.getOrDefault(ct, 0) + 1);
+            Map<Character, Integer> need = new HashMap<>();
+            Map<Character, Integer> window = new HashMap<>();
+
+            for(int i=0; i<t.length(); i++){
+                char c = t.charAt(i);
+                need.put(c, need.getOrDefault(c, 0)+1);
             }
-            // for judge whether the window still have vaild solution
-            int valid = 0;
-            // window margin point
-            int left = 0;
-            int right = 0;
-            // pointer for solution
-            int start = 0, len = Integer.MAX_VALUE;
-            while (right < s.length()) {
-                // get the character for window
+
+            int left = 0, right = 0, start = 0, length = Integer.MAX_VALUE, valid = 0;
+
+            while(right<s.length()){
                 char c = s.charAt(right);
-                // enlarge window
                 right++;
-                if (need.containsKey(c)) {
-                    // record the aimed character into window
-                    window.put(c, window.getOrDefault(c, 0) + 1);
-                    if (need.get(c).equals(window.get(c))) {
+                // window only stores the character in the need
+                if(need.containsKey(c)){
+                    window.put(c, window.getOrDefault(c, 0)+1);
+                    if(need.get(c).equals(window.get(c))){
                         valid++;
                     }
                 }
 
-                // shrink the window until window is not valid
-                while (valid == need.size()) {
-                    // 1. update the solution with effective window
-                    if (right - left < len) {
+                while(need.size() == valid){
+                    if(right - left < length){
+                        length = right - left;
                         start = left;
-                        len = right - left;
                     }
-                    // 2. shrink the window
-                    // the character is gonna out of window
+
                     char d = s.charAt(left);
                     left++;
-                    if (need.containsKey(d)) {
-                        // update effective data of window
-                        if (need.get(d).equals(window.get(d))) {
+                    if(need.containsKey(d)){
+                        if(need.get(d).equals(window.get(d))){
                             valid--;
                         }
-                        window.put(d, window.get(d) - 1);
+                        window.put(d, window.get(d)-1);
                     }
                 }
+
             }
-            return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
+            return length == Integer.MAX_VALUE? "":s.substring(start, start+length);
+//            // record what character and count of it is needed for solution
+//            Map<Character, Integer> need = new HashMap<>(1 << 1);
+//            // record the count of effective character in the window
+//            Map<Character, Integer> window = new HashMap<>(1 << 1);
+//            for (int i = 0; i < t.length(); i++) {
+//                char ct = t.charAt(i);
+//                need.put(ct, need.getOrDefault(ct, 0) + 1);
+//            }
+//            // for judge whether the window still have vaild solution
+//            int valid = 0;
+//            // window margin point
+//            int left = 0;
+//            int right = 0;
+//            // pointer for solution
+//            int start = 0, len = Integer.MAX_VALUE;
+//            while (right < s.length()) {
+//                // get the character for window
+//                char c = s.charAt(right);
+//                // enlarge window
+//                right++;
+//                if (need.containsKey(c)) {
+//                    // record the aimed character into window
+//                    window.put(c, window.getOrDefault(c, 0) + 1);
+//                    if (need.get(c).equals(window.get(c))) {
+//                        valid++;
+//                    }
+//                }
+//
+//                // shrink the window until window is not valid
+//                while (valid == need.size()) {
+//                    // 1. update the solution with effective window
+//                    if (right - left < len) {
+//                        start = left;
+//                        len = right - left;
+//                    }
+//                    // 2. shrink the window
+//                    // the character is gonna out of window
+//                    char d = s.charAt(left);
+//                    left++;
+//                    if (need.containsKey(d)) {
+//                        // update effective data of window
+//                        if (need.get(d).equals(window.get(d))) {
+//                            valid--;
+//                        }
+//                        window.put(d, window.get(d) - 1);
+//                    }
+//                }
+//            }
+//            return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

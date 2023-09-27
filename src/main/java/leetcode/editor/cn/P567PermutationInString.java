@@ -74,11 +74,11 @@ class Solution {
                 }
             }
 
-        // Shrink the window when window's length is bigger than the length of string s1
-            while(valid == need.size()){
-                if(right - left == s1.length()){
-                    return true;
-                }
+            if(need.size()==valid){
+                return true;
+            }
+            // Shrink the window when window's length is bigger than the length of string s1
+            if(right - left >= s1.length()){
                 char d = s2.charAt(left);
                 left++;
                 if(need.containsKey(d)){
