@@ -1,5 +1,10 @@
 package leetcode.editor.ds;
 
+/*
+Achievement with a dummy head node and a tail node. The dummy head node ensures consistency in insertion at the head of the linked list, while the tail node reduce the time consumption of insertion at the last of the linked list.
+In an empty list, the tail node points to the dummy head.
+Compared to the singly linked list only has dummy head, adding an element to an empty list and removing an element of  the last element of the linked list with a tail node pointer needs to reassign the tail node pointer.
+ */
 public class SinglyLinkedList<E> {
 
     private static class Node<E> {
@@ -22,21 +27,6 @@ public class SinglyLinkedList<E> {
         this.tail = dummyHead;
         this.size = 0;
     }
-
-//    public static void main(String[] args) {
-//        SinglyLinkedList<Integer> dynamicArray = new SinglyLinkedList<>();
-//
-//        dynamicArray.addfirst(1);
-//        dynamicArray.append(3);
-//        dynamicArray.add(1, 2);
-//        Integer integer = dynamicArray.get(1);
-//        dynamicArray.remove(1);
-//        dynamicArray.get(1);
-//
-//        for (int i = 0; i < dynamicArray.size; i++) {
-//            System.out.println(dynamicArray.get(i));
-//        }
-//    }
 
     // add a node into the head of the Linked List
     public void addFirst(E e) {
