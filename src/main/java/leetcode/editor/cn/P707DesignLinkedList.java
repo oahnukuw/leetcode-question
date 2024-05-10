@@ -76,19 +76,33 @@ public class P707DesignLinkedList {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class MyLinkedList {
-        int[] array;
-        int size = 0;
+        private class Node {
+            int val;
+            Node next;
+
+            public Node(int val) {
+                this.val = val;
+                this.next = null;
+            }
+        }
+
+        private final Node dummyHead;
+        int size;
 
         public MyLinkedList() {
-            array = new int[1];
+            dummyHead = new Node(-1);
+            size=0;
         }
 
         public int get(int index) {
             if (index < 0 || index >= size) {
                 return -1;
             }
-            return array[index];
-
+            Node p = dummyHead;
+            for (int i = 0; i <= index; i++) {
+                p = p.next;
+            }
+            return p.val;
         }
 
         public void addAtHead(int val) {
@@ -96,38 +110,20 @@ public class P707DesignLinkedList {
         }
 
         public void addAtTail(int val) {
-            int capacity = array.length;
-            if (size == capacity) {
-                resize(capacity * 2);
-            }
-            array[size] = val;
-            size++;
-
-        }
-
-        private void resize(int capacity) {
-            if (capacity < 0) {
-                return;
-            }
-            int[] temp = new int[capacity];
-            for (int i = 0; i < size; i++) {
-                temp[i] = array[i];
-            }
-            array = temp;
-
+            addAtIndex(size, val);
         }
 
         public void addAtIndex(int index, int val) {
             if (index < 0 || index > size) {
                 return;
             }
-            if (size == array.length) {
-                resize(2 * array.length);
+            Node prev = dummyHead;
+            for (int i = 0; i < index; i++) {
+                prev = prev.next;
             }
-            for (int i = size; i > index; i--) {
-                array[i] = array[i - 1];
-            }
-            array[index] = val;
+            Node newNode = new Node(val);
+            newNode.next = prev.next;
+            prev.next = newNode;
             size++;
 
         }
@@ -136,13 +132,12 @@ public class P707DesignLinkedList {
             if (index < 0 || index >= size) {
                 return;
             }
-            if (array.length / 4 == size) {
-                resize(array.length / 2);
+            Node prev = dummyHead;
+            for (int i = 0; i < index; i++) {
+                prev = prev.next;
             }
-            for (int i = index; i < size - 1; i++) {
-                array[i] = array[i + 1];
-            }
-            array[size - 1] = -1;
+            Node nodeToRemove = prev.next;
+            prev.next = nodeToRemove.next;
             size--;
 
         }

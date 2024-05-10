@@ -11,6 +11,11 @@ public class DynamicArray<E> {
         this(INIT_CAPACITY);
     }
 
+    public DynamicArray(int initCapacity) {
+        array = (E[]) new Object[initCapacity];
+        size = 0;
+    }
+
     public static void main(String[] args) {
         DynamicArray<Integer> dynamicArray = new DynamicArray<>();
 
@@ -24,11 +29,6 @@ public class DynamicArray<E> {
         for (int i = 0; i < dynamicArray.size; i++) {
             System.out.println(dynamicArray.get(i));
         }
-    }
-
-    public DynamicArray(int initCapacity) {
-        array = (E[]) new Object[initCapacity];
-        size = 0;
     }
 
     // append an element to array
