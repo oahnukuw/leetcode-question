@@ -79,18 +79,24 @@ public class P707DesignLinkedList {
         private class Node {
             int val;
             Node next;
+            Node prev;
 
-            public Node(int val) {
+            public Node(Node prev, int val, Node next) {
                 this.val = val;
-                this.next = null;
+                this.next = next;
+                this.prev = prev;
             }
         }
 
         private final Node dummyHead;
+        private final Node dummyLast;
         int size;
 
         public MyLinkedList() {
-            dummyHead = new Node(-1);
+            this.dummyLast = new Node(null, -1, null);
+            this.dummyHead = new Node(null, -1, null);
+            dummyHead.next = dummyLast;
+            dummyLast.prev = dummyHead;
             size=0;
         }
 
@@ -117,13 +123,14 @@ public class P707DesignLinkedList {
             if (index < 0 || index > size) {
                 return;
             }
-            Node prev = dummyHead;
-            for (int i = 0; i < index; i++) {
-                prev = prev.next;
+            Node succ = dummyHead;
+            for (int i = 0; i <= index; i++) {
+                succ = succ.next;
             }
-            Node newNode = new Node(val);
-            newNode.next = prev.next;
-            prev.next = newNode;
+            Node pred = succ.prev;
+            Node newNode = new Node(pred, val, succ);
+            succ.prev = newNode;
+            pred.next = newNode;
             size++;
 
         }
@@ -132,12 +139,16 @@ public class P707DesignLinkedList {
             if (index < 0 || index >= size) {
                 return;
             }
-            Node prev = dummyHead;
-            for (int i = 0; i < index; i++) {
-                prev = prev.next;
+            Node nodeToRemove = dummyHead;
+            for (int i = 0; i <= index; i++) {
+                nodeToRemove = nodeToRemove.next;
             }
-            Node nodeToRemove = prev.next;
-            prev.next = nodeToRemove.next;
+            final Node succ = nodeToRemove.next;
+            final Node pred = nodeToRemove.prev;
+            succ.prev = pred;
+            pred.next = succ;
+            nodeToRemove.next = null;
+            nodeToRemove.prev = null;
             size--;
 
         }
