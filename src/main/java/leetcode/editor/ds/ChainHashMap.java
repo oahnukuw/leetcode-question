@@ -11,14 +11,18 @@ public class ChainHashMap<K, V> {
         K key;
         V value;
 
+        KVNode<K, V> prev, next;
+
         public KVNode(K key, V value) {
             this.key = key;
             this.value = value;
         }
     }
 
-//    table, storing the linkedList
-private LinkedList<KVNode<K, V>>[] table;
+    private final KVNode<K, V> head, tail;
+
+    //    table, storing the linkedList
+    private LinkedList<KVNode<K, V>>[] table;
 
     //    Current size of key-value nodes
     private int size;
@@ -33,6 +37,13 @@ private LinkedList<KVNode<K, V>>[] table;
     }
 
     public ChainHashMap(int initCapacity) {
+
+//        Initialize the doubly linkedList for recording the put sequence
+        this.head = new KVNode<>(null, null);
+        this.tail = new KVNode<>(null, null);
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+
         this.size = 0;
         initCapacity = Math.max(1, initCapacity);
         table = (LinkedList<KVNode<K, V>>[]) new LinkedList[initCapacity];
@@ -53,8 +64,9 @@ private LinkedList<KVNode<K, V>>[] table;
                 return;
             }
         }
-
-        list.add(new KVNode<>(key, value));
+        KVNode<K, V> node = new KVNode<>(key, value);
+        list.add(node);
+        addLastNode(node);
         size++;
 
         if ((float) (size / table.length) > DEFAULT_LOAD_FACTOR) {
@@ -62,23 +74,41 @@ private LinkedList<KVNode<K, V>>[] table;
         }
     }
 
+    private void addLastNode(KVNode<K, V> node) {
+        node.prev = tail.prev;
+        tail.prev.next = node;
+        tail.prev = node;
+        node.next = tail;
+    }
+
     public V remove(K key) {
         if (key == null) {
             throw new IllegalArgumentException("key is null while removing");
         }
         LinkedList<KVNode<K, V>> list = table[hash(key)];
-        for (KVNode<K, V> kvNode : list) {
-            if (kvNode.key.equals(key)) {
-                list.remove(kvNode);
+        for (KVNode<K, V> node : list) {
+            if (node.key.equals(key)) {
+                list.remove(node);
+//              remove the node from the sequence list
+                removeNode(node);
                 size--;
 
                 if (size <= table.length / 8) {
                     resize(table.length / 4);
                 }
-                return kvNode.value;
+                return node.value;
             }
         }
         return null;
+    }
+
+    private void removeNode(KVNode<K, V> node) {
+        KVNode<K, V> prev = node.prev;
+        KVNode<K, V> next = node.next;
+        prev.next = next;
+        next.prev = prev;
+        node.prev = null;
+        node.next = null;
     }
 
     public V get(K key) {
@@ -111,10 +141,8 @@ private LinkedList<KVNode<K, V>>[] table;
 
     public List<K> keys() {
         LinkedList<K> keys = new LinkedList<>();
-        for (LinkedList<KVNode<K, V>> kvNodes : table) {
-            for (KVNode<K, V> kvNode : kvNodes) {
-                keys.add(kvNode.key);
-            }
+        for (KVNode<K, V> node = head.next; node != tail; node = node.next) {
+            keys.add(node.key);
         }
         return keys;
     }
@@ -141,10 +169,7 @@ private LinkedList<KVNode<K, V>>[] table;
         ChainHashMap<String, Integer> map = new ChainHashMap<>();
         map.put(String.valueOf(1), 1);
         map.put(String.valueOf(2), 2);
-        System.out.println(map.get("1"));
-        System.out.println(map.get("2"));
         map.put("1", 100);
-        System.out.println(map.get("1"));
         System.out.println(map.keys());
         map.put("11", 200);
         System.out.println(map.keys());
