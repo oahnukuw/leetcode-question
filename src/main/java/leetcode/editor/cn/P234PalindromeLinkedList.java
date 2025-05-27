@@ -24,30 +24,31 @@ public class P234PalindromeLinkedList {
 //            left = head;
 //            traverse(head);
 //            return res;
-            ListNode slow, fast;
-
-            slow = fast = head;
-            ListNode pre = null;
+//            1. Get the middle node using fast and slow pointer scanning
+            ListNode fast = head, slow = head;
             while (fast != null && fast.next != null) {
                 fast = fast.next.next;
-                ListNode node = slow;
-                slow = slow.next;
-                node.next = pre;
-                pre = node;
-            }
-            if (fast != null) {
                 slow = slow.next;
             }
-            ListNode p = pre;
-            boolean res = true;
-            while (p != null && slow != null) {
-                if (p.val != slow.val) {
+//            2. Now slow is the head of the last half nodes
+//            Reverse the last half nodes
+            ListNode pre = null, p = slow;
+            while (p != null) {
+                ListNode next = p.next;
+                p.next = pre;
+                pre = p;
+                p = next;
+            }
+            left = head;
+            right = pre;
+            while (right != null) {
+                if (left.val != right.val) {
                     return false;
                 }
-                p = p.next;
-                slow = slow.next;
+                left = left.next;
+                right = right.next;
             }
-            return res;
+            return true;
         }
 
         private void traverse(ListNode right) {

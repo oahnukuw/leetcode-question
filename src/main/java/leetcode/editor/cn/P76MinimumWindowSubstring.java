@@ -7,43 +7,44 @@ public class P76MinimumWindowSubstring {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String minWindow(String s, String t) {
-            int l = 0, r = 0;
-            HashMap<Character, Integer> windows = new HashMap<>();
-            HashMap<Character, Integer> needs = new HashMap<>();
-            int find = 0;
-            for (char c : t.toCharArray()) {
-                needs.put(c, needs.getOrDefault(c, 0) + 1);
+            // Define window [left,right) is the subString of s which only contains chars of t
+            // Enlarge the window when right<s.length shrink when t in the window
+            int left = 0, right = 0;
+            // Record how many chars of t were met in window
+            HashMap<Character, Integer> target = new HashMap<>();
+            for (int i = 0; i < t.length(); i++) {
+                char c = t.charAt(i);
+                target.put(c, target.getOrDefault(c, 0) + 1);
             }
-
-            int minlen = Integer.MAX_VALUE;
-            int start = 0;
-            while (r < s.length()) {
-                Character rChar = s.charAt(r);
-                if (needs.containsKey(rChar)) {
-                    windows.put(rChar, windows.getOrDefault(rChar, 0) + 1);
-                    if (windows.get(rChar).equals(needs.get(rChar))) {
-                        find++;
+            int noFound = target.size();
+            HashMap<Character, Integer> window = new HashMap<>();
+            int start = 0, end = s.length() + 1;
+            while (right < s.length()) {
+                char c = s.charAt(right);
+                if (target.containsKey(c)) {
+                    window.put(c, window.getOrDefault(c, 0) + 1);
+                    if (window.get(c).equals(target.get(c))) {
+                        noFound--;
                     }
                 }
-                r++;
+                right++;
 
-                while (l < r && find == needs.size()) {
-                    if ((r - l) < minlen) {
-                        // update answer
-                        minlen = r - l;
-                        start = l;
+                while (noFound == 0 && left < right) {
+                    char d = s.charAt(left);
+                    if (( end-start )>(right-left)){
+                        end = right;
+                        start = left;
                     }
-                    char lChar = s.charAt(l);
-                    if (needs.containsKey(lChar)) {
-                        if (needs.get(lChar).equals(windows.get(lChar))) {
-                            find--;
+                        if (target.containsKey(d)) {
+                            if (window.get(d).equals(target.get(d))) {
+                                noFound++;
                         }
-                        windows.put(lChar, windows.get(lChar) - 1);
+                            window.put(d, window.get(d) - 1);
                     }
-                    l++;
+                    left++;
                 }
             }
-            return minlen == Integer.MAX_VALUE ? "" : s.substring(start, start + minlen);
+            return end == s.length() + 1 ? "" : s.substring(start, end);
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

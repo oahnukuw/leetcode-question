@@ -2,6 +2,9 @@ package leetcode.editor.cn;
 
 import leetcode.editor.cn.common.TreeNode;
 
+import java.util.concurrent.TransferQueue;
+import java.util.logging.Level;
+
 public class P226InvertBinaryTree {
 
     // leetcode submit region begin(Prohibit modification and deletion)
@@ -23,33 +26,30 @@ public class P226InvertBinaryTree {
      */
     class Solution {
         public TreeNode invertTree(TreeNode root) {
-            // return reverse(root);
-            iteratingReverse(root);
+            // if (root == null) {
+            //     return null;
+            // }
+            // TreeNode left = invertTree(root.left);
+            // TreeNode right = invertTree(root.right);
+            // root.left = right;
+            // root.right = left;
+            // return root;
+
+            invertByTraverse(root);
             return root;
         }
 
-        TreeNode reverse(TreeNode root) {
-            if (root == null) {
-                return null;
-            }
-            TreeNode left = reverse(root.left);
-            TreeNode right = reverse(root.right);
+        private void invertByTraverse(TreeNode root) {
+            if (root == null) return;
+            TreeNode left = root.left;
+            TreeNode right = root.right;
             root.left = right;
             root.right = left;
-            return root;
+            invertByTraverse(root.left);
+            invertByTraverse(root.right);
         }
 
-        void iteratingReverse(TreeNode root) {
-            if (root == null) {
-                return;
-            }
-            TreeNode temp = root.left;
-            root.left = root.right;
-            root.right = temp;
-            iteratingReverse(root.left);
-            iteratingReverse(root.right);
 
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

@@ -1,26 +1,27 @@
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.LinkedList;
 
 public class P901OnlineStockSpan {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class StockSpanner {
-        Stack<int[]> s;
+        // int[]{price,maxDays}
+        // Maintain a stack that the price of elements in stack are all bigger than today's price
+        LinkedList<int[]> monotonicStack;
 
         public StockSpanner() {
-            s = new Stack<>();
+            this.monotonicStack = new LinkedList<>();
         }
 
         public int next(int price) {
-            int count = 1;
-            while (!s.isEmpty() && price >= s.peek()[0]) {
-                count += s.pop()[1];
+            int gap = 1;
+            while (!monotonicStack.isEmpty() && monotonicStack.peek()[0] <= price) {
+                int[] pop = monotonicStack.pop();
+                gap += pop[1];
             }
-            s.push(new int[]{price, count});
-            return count;
+            monotonicStack.push(new int[]{price, gap});
+            return gap;
         }
     }
 

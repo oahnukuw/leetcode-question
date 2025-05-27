@@ -1,6 +1,7 @@
 package leetcode.editor.cn;
 
-import leetcode.editor.cn.common.ListNode;
+import java.util.*;
+import leetcode.editor.cn.common.*;
 
 public class P25ReverseNodesInKGroup {
 
@@ -17,28 +18,23 @@ public class P25ReverseNodesInKGroup {
      */
     class Solution {
         public ListNode reverseKGroup(ListNode head, int k) {
-            if (head == null) return null;
-            ListNode a, b;
-            a = b = head;
+            ListNode p = head;
             for (int i = 0; i < k; i++) {
-                if (b == null) return head;
-                b = b.next;
-            }
-            ListNode res = reverseN(a, k);
-            head.next = reverseKGroup(b, k);
-            return res;
-        }
-
-        private ListNode reverseN(ListNode head, int n) {
-            ListNode pre = null, p = head;
-            while (n > 0) {
-                ListNode cur = p;
+                if (p == null) {
+                    return head;
+                }
                 p = p.next;
-                cur.next = pre;
-                pre = cur;
-                n--;
             }
-            head.next = p;
+
+            ListNode last = reverseKGroup(p, k);
+            ListNode pre = null, q = head;
+            while (k-- > 0) {
+                ListNode nextToReverse = q.next;
+                q.next = pre;
+                pre = q;
+                q = nextToReverse;
+            }
+            head.next = last;
             return pre;
         }
     }

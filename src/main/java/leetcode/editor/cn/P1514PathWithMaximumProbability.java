@@ -7,64 +7,54 @@ public class P1514PathWithMaximumProbability {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public double maxProbability(int n, int[][] edges, double[] succProb, int start_node, int end_node) {
-            List<Edge>[] graph = buildGraph(n, edges, succProb);
+            List<double[]>[] graph = buildGraph(n, edges, succProb);
+
             return dijkstra(graph, start_node, end_node);
         }
 
-        private double dijkstra(List<Edge>[] graph, int start, int end) {
-            double[] propFrom = new double[graph.length];
-            Arrays.fill(propFrom, -1);
-            propFrom[start] = 1;
-            PriorityQueue<Edge> q = new PriorityQueue<>((a, b) -> (Double.compare(b.prob, a.prob)));
-            q.offer(new Edge(start, 1));
-
-            while (!q.isEmpty()) {
-                Edge curNode = q.poll();
-                int curId = curNode.id;
-                double curProp = curNode.prob;
-
-                if (curId == end) {
-                    // return propFrom[end] == -1 ? 0 : propFrom[end];
-                    return propFrom[end];
+        private double dijkstra(List<double[]>[] graph, int startNode, int endNode) {
+            double[] probTo = new double[graph.length];
+            Arrays.fill(probTo, -1);
+            PriorityQueue<double[]> pq = new PriorityQueue<>((a, b) -> Double.compare(b[1], a[1]));
+            pq.offer(new double[]{startNode, 1});
+            while (!pq.isEmpty()) {
+                double[] cur = pq.poll();
+                int curId = (int) cur[0];
+                double curProb = cur[1];
+                if (probTo[curId] != -1) continue;
+                probTo[curId] = curProb;
+                if (curId == endNode) {
+                    return curProb;
                 }
-                if (curProp < propFrom[curId]) {
-                    continue;
-                }
-                List<Edge> nextEdges = graph[curId];
-                for (Edge next : nextEdges) {
-                    double nextPropFrom = next.prob * propFrom[curId];
-                    if (nextPropFrom > propFrom[next.id]) {
-                        propFrom[next.id] = nextPropFrom;
-                        q.offer(new Edge(next.id, nextPropFrom));
+
+                for (double[] neighbor : graph[curId]) {
+                    int nextId = (int) neighbor[0];
+                    double nextProb = neighbor[1];
+                    if (probTo[nextId] == -1) {
+                        pq.offer(new double[]{nextId, curProb * nextProb});
                     }
                 }
             }
-            return 0;
+            return probTo[endNode] == -1 ? 0.0 : probTo[endNode];
         }
 
-        private List<Edge>[] buildGraph(int n, int[][] edges, double[] succProb) {
-            List<Edge>[] graph = new List[n];
+        private List<double[]>[] buildGraph(int n, int[][] edges, double[] succProb) {
+            LinkedList<double[]>[] graph = new LinkedList[n];
             for (int i = 0; i < graph.length; i++) {
-                graph[i] = new ArrayList<>();
+                graph[i] = new LinkedList<>();
             }
             for (int i = 0; i < edges.length; i++) {
                 int[] edge = edges[i];
-                int w = edge[0], v = edge[1];
-                graph[w].add(new Edge(v, succProb[i]));
-                graph[v].add(new Edge(w, succProb[i]));
+                int from = edge[0];
+                int to = edge[1];
+                double prob = succProb[i];
+                graph[from].add(new double[]{to, prob});
+                graph[to].add(new double[]{from, prob});
             }
             return graph;
         }
 
-        class Edge {
-            int id;
-            double prob;
 
-            public Edge(int id, double prob) {
-                this.id = id;
-                this.prob = prob;
-            }
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

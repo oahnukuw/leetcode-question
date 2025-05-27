@@ -17,25 +17,48 @@ public class P93RestoreIpAddresses {
         }
 
         private void backtrack(String s, int start) {
-            if (s.length() == start && track.size() == 4) {
+            if (track.size() > 4) {
+                return;
+            }
+
+            if (start == s.length() && track.size() == 4) {
                 res.add(String.join(".", track));
                 return;
             }
-            for (int i = start; i < s.length() && i < start + 3; i++) {
-
-                if (s.charAt(start) == '0' && i > start) {
-                    return;
+            for (int i = start + 1; i <= 3 + start&&i<=s.length(); i++) {
+                String substring = s.substring(start, i);
+                if (substring.length() > 1 && substring.charAt(0) == '0') {
+                    break;
                 }
-                String substring = s.substring(start, i + 1);
                 if (Integer.parseInt(substring) > 255) {
                     continue;
                 }
-                track.add(substring);
-                backtrack(s, i + 1);
+                track.addLast(substring);
+                backtrack(s, i);
                 track.removeLast();
-
             }
         }
+
+        // private void backtrack(String s, int start) {
+        //     if (s.length() == start && track.size() == 4) {
+        //         res.add(String.join(".", track));
+        //         return;
+        //     }
+        //     for (int i = start; i < s.length() && i < start + 3; i++) {
+        //
+        //         if (s.charAt(start) == '0' && i > start) {
+        //             return;
+        //         }
+        //         String substring = s.substring(start, i + 1);
+        //         if (Integer.parseInt(substring) > 255) {
+        //             continue;
+        //         }
+        //         track.add(substring);
+        //         backtrack(s, i + 1);
+        //         track.removeLast();
+        //
+        //     }
+        // }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

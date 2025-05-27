@@ -1,4 +1,4 @@
-package leetcode.editor.ds;
+package leetcode.editor.template;
 
 public class UF {
     private int[] parent;

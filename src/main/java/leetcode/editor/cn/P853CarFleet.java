@@ -9,18 +9,16 @@ public class P853CarFleet {
     class Solution {
         public int carFleet(int target, int[] position, int[] speed) {
             int n = position.length;
-            int[][] cars = new int[n][2];
-            for (int i = 0; i < n; i++) {
-                cars[i][0] = position[i];
-                cars[i][1] = speed[i];
-            }
-            Arrays.sort(cars, Comparator.comparingInt(a -> a[0]));
+            int[][] tuple = new int[n][2];
             double[] time = new double[n];
             for (int i = 0; i < n; i++) {
-                time[i] = (double) (target - cars[i][0]) / cars[i][1];
+                tuple[i] = new int[]{position[i], speed[i]};
             }
-            // Monotonic Stack
-            // Stack<Double> stack = new Stack<>();
+            Arrays.sort(tuple, Comparator.comparingInt(a -> a[0]));
+            for (int i = 0; i < n; i++) {
+                time[i] = (double) (target - tuple[i][0]) / tuple[i][1];
+            }
+            // LinkedList<Double> stack = new LinkedList<>();
             // for (int i = 0; i < n; i++) {
             //     while (!stack.isEmpty() && stack.peek() <= time[i]) {
             //         stack.pop();
@@ -28,7 +26,6 @@ public class P853CarFleet {
             //     stack.push(time[i]);
             // }
             // return stack.size();
-
             double maxTime = 0;
             int res = 0;
             for (int i = n - 1; i >= 0; i--) {

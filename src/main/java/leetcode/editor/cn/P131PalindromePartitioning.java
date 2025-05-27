@@ -8,40 +8,42 @@ public class P131PalindromePartitioning {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        LinkedList<String> track = new LinkedList<>();
-        List<List<String>> res = new ArrayList<>();
+        List<List<String>> res;
+        LinkedList<String> track;
 
         public List<List<String>> partition(String s) {
-            backtrack(s, 0);
+            res = new ArrayList<>();
+            track = new LinkedList<>();
+            backtrack(s);
             return res;
         }
 
-        private void backtrack(String s, int start) {
-            if (start == s.length()) {
+        private void backtrack(String s) {
+            if (s.isEmpty()) {
                 res.add(new ArrayList<>(track));
+                return;
             }
-
-            for (int i = start; i < s.length(); i++) {
-                if (!isPalindrome(s, start, i)) {
-                    continue;
+            for (int i = 0; i < s.length(); i++) {
+                String substring = s.substring(0, i + 1);
+                if (isPalindrome(substring)) {
+                    track.addLast(substring);
+                    backtrack(s.substring(i + 1));
+                    track.removeLast();
                 }
-                track.add(s.substring(start, i + 1));
-                backtrack(s, i + 1);
-                track.removeLast();
             }
         }
 
-        private boolean isPalindrome(String s, int begin, int end) {
-            int lo = begin, hi = end;
-            while (lo < hi) {
-                if (s.charAt(lo) != s.charAt(hi)) {
+        private boolean isPalindrome(String s) {
+            int left = 0, right = s.length() - 1;
+            while (left < right) {
+                if (s.charAt(left++) != s.charAt(right--)) {
                     return false;
                 }
-                lo++;
-                hi--;
             }
             return true;
         }
+
+
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

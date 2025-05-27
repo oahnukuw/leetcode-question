@@ -7,23 +7,21 @@ public class P220ContainsDuplicateIii {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
-            // Maintain a window that holds elements between [l,r), which as for the new element nums[r] can get the element of the window which is the closest to nums[r]. So using a Treeset as a window that can get the ceiling element or the floor element to compare with valueDiff.
+            int left = 0, right = 0;
             TreeSet<Integer> window = new TreeSet<>();
-            int l = 0, r = 0;
-            while (r < nums.length) {
-                Integer ceiling = window.ceiling(nums[r]);
-                if (ceiling != null && Math.abs(nums[r] - ceiling) <= valueDiff) {
+            while (right < nums.length) {
+                int num = nums[right++];
+                Integer floor = window.floor(num);
+                Integer ceiling = window.ceiling(num);
+                if (floor!=null&&Math.abs(floor - num) <= valueDiff) {
                     return true;
                 }
-                Integer floor = window.floor(nums[r]);
-                if (floor != null && Math.abs(nums[r] - floor) <= valueDiff) {
+                if (ceiling != null && Math.abs(ceiling - num) <= valueDiff) {
                     return true;
                 }
-                window.add(nums[r]);
-                r++;
-                if ((r - l) > indexDiff) {
-                    window.remove(nums[l]);
-                    l++;
+                window.add(num);
+                if (right - left > indexDiff) {
+                    window.remove(nums[left++]);
                 }
             }
             return false;

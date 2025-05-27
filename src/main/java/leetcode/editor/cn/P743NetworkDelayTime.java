@@ -7,11 +7,18 @@ public class P743NetworkDelayTime {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int networkDelayTime(int[][] times, int n, int k) {
+            // 1. build graph by times
+            // adj stores int[]{to,weight}
             List<int[]>[] graph = buildGraph(times, n);
-            int[] distTo = dijkstra(graph, k);
-            int res = 0;
-            for (int i = 1; i < distTo.length; i++) {
-                if (distTo[i] == Integer.MAX_VALUE) {
+            // 2. Use dijkstra
+            // the distance from src to the node
+            int[] distTo;
+            distTo = new int[n + 1];
+            Arrays.fill(distTo, -1);
+            dijkstra(graph, distTo, k);
+            int res = -1;
+            for (int i = 1; i <= n; i++) {
+                if (distTo[i] == -1) {
                     return -1;
                 }
                 res = Math.max(distTo[i], res);
@@ -19,70 +26,46 @@ public class P743NetworkDelayTime {
             return res;
         }
 
-        private int[] dijkstra(List<int[]>[] graph, int k) {
-            // Shortest distance from start to i
-            int[] distTo = new int[graph.length];
-            Arrays.fill(distTo, Integer.MAX_VALUE);
-            distTo[k] = 0;
-            PriorityQueue<State> q = new PriorityQueue<>(Comparator.comparingInt(a -> a.distToStart));
-            q.offer(new State(0, k));
-            while (!q.isEmpty()) {
-                State cur = q.poll();
-                int curId = cur.id;
-                int curDistToStart = cur.distToStart;
-                // Cut the bigger path if existed
-                if (curDistToStart > distTo[curId]) {
+        private void dijkstra(List<int[]>[] graph, int[] distTo, int src) {
+            PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+            pq.offer(new int[]{src, 0});
+            while (!pq.isEmpty()) {
+                // cur{to, distToCur}
+                int[] cur = pq.poll();
+                int curId = cur[0];
+                int distToCur = cur[1];
+
+                if (distTo[curId] != -1) {
                     continue;
                 }
-                List<int[]> nextList = graph[curId];
-                for (int[] next : nextList) {
-                    int distToNext = next[1];
+                distTo[curId] = distToCur;
+
+                for (int[] next : graph[curId]) {
                     int nextId = next[0];
-                    int nextdistToStart = distToNext + distTo[curId];
-                    if (distTo[nextId] > nextdistToStart) {
-                        distTo[nextId] = nextdistToStart;
-                        q.offer(new State(nextdistToStart, nextId));
+                    int weightFromCur = next[1];
+                    int distToNext = distToCur + weightFromCur;
+
+                    if (distTo[nextId] == -1) {
+                        pq.offer(new int[]{nextId, distToNext});
                     }
                 }
             }
-            return distTo;
         }
 
         private List<int[]>[] buildGraph(int[][] times, int n) {
-            List<int[]>[] graph = new List[n + 1];
-            for (int i = 0; i <= n; i++) {
-                graph[i] = new ArrayList<>();
+            List<int[]>[] graph = new LinkedList[n + 1];
+            for (int i = 1; i <= n; i++) {
+                graph[i] = new LinkedList<>();
             }
-            for (int[] edge : times) {
-                int from = edge[0];
-                int to = edge[1];
-                int weight = edge[2];
+            for (int[] time : times) {
+                int from = time[0];
+                int to = time[1];
+                int weight = time[2];
                 graph[from].add(new int[]{to, weight});
             }
             return graph;
-
         }
 
-        class Edge {
-            int to;
-            int weight;
-
-            public Edge(int to, int weight) {
-                this.to = to;
-                this.weight = weight;
-            }
-        }
-
-        class State {
-            int distToStart;
-            int id;
-
-            public State(int distToStart, int id) {
-                this.distToStart = distToStart;
-                this.id = id;
-            }
-
-        }
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

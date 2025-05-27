@@ -1,30 +1,28 @@
 package leetcode.editor.cn;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class P388LongestAbsoluteFilePath {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthLongestPath(String input) {
-            String[] parts = input.split("\n");
-            Deque<String> stack = new ArrayDeque<>(parts[parts.length - 1].lastIndexOf("\t") + 1);
-            int maxLen = 0;
-            for (String part : parts) {
-                int level = part.lastIndexOf("\t") + 1;
-                while (level < stack.size()) {
-                    stack.pop();
+            String[] split = input.split("\n");
+            Stack<String> filepath = new Stack<>();
+            int res = 0;
+            for (String part : split) {
+                int level = part.lastIndexOf('\t') + 1;
+                while (level < filepath.size()) {
+                    filepath.pop();
                 }
-                stack.push(part.substring(level));
-                if (part.contains(".")) {
-                    int sum = stack.stream().mapToInt(String::length).sum();
-                    sum += stack.size() - 1;
-                    maxLen = Math.max(maxLen, sum);
+                String substring = part.substring(level);
+                filepath.push(substring);
+                if (substring.contains(".")) {
+                    int sum = filepath.stream().mapToInt(String::length).sum() + level;
+                    res = Math.max(sum, res);
                 }
             }
-            return maxLen;
-
+            return res;
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)

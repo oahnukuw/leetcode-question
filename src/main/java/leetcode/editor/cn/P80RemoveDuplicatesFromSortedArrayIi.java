@@ -5,22 +5,16 @@ public class P80RemoveDuplicatesFromSortedArrayIi {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int removeDuplicates(int[] nums) {
-            int slow = 0, fast = 0;
+            int slow = 1, fast = 2;
+            // Define: [0...slow] Element show at most twice
             while (fast < nums.length) {
-                if (nums[slow] != nums[fast]) {
+                if (slow >= 1 && nums[fast] != nums[slow - 1]) {
                     slow++;
                     nums[slow] = nums[fast];
-                }else if (fast != slow) {
-                    if (slow == 0 && nums[fast] == nums[slow]) {
-                        slow++;
-                    } else if (slow > 0 && nums[fast] == nums[slow] && nums[slow - 1] != nums[slow]) {
-                        slow++;
-                        nums[slow] = nums[fast];
-                    }
                 }
                 fast++;
             }
-            return slow+1;
+            return slow + 1;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

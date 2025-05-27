@@ -13,28 +13,34 @@ public class P980UniquePathsIii {
         public int uniquePathsIII(int[][] grid) {
             int m = grid.length, n = grid[0].length;
             visited = new boolean[m][n];
-            int starti = 0, startj = 0;
+            int startI = 0, startJ = 0;
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (grid[i][j] == 1) {
-                        starti = i;
-                        startj = j;
-                    }
-                    if (grid[i][j] == 1 || grid[i][j] == 0) {
+                    int num = grid[i][j];
+                    if (num == 0 || num == 1) {
                         totalCount++;
+                    }
+                    if (num == 1) {
+                        startI = i;
+                        startJ = j;
                     }
                 }
             }
-            dfs(grid, starti, startj);
+            dfs(grid, startI, startJ);
             return res;
         }
 
         private void dfs(int[][] grid, int i, int j) {
-            int m = grid.length, n = grid[0].length;
-            if (i < 0 || j < 0 || i >= m || j >= n) return;
-            if (grid[i][j] == -1 || visited[i][j]) return;
-            if (grid[i][j] == 2 && totalCount == trackCount) {
-                res++;
+            if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length ) {
+                return;
+            }
+            if (visited[i][j] || grid[i][j] == -1) {
+                return;
+            }
+            if (grid[i][j] == 2) {
+                if (trackCount == totalCount) {
+                    res++;
+                }
                 return;
             }
             trackCount++;
@@ -45,7 +51,9 @@ public class P980UniquePathsIii {
             dfs(grid, i, j + 1);
             visited[i][j] = false;
             trackCount--;
+
         }
+
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

@@ -5,34 +5,24 @@ public class P1658MinimumOperationsToReduceXToZero {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minOperations(int[] nums, int x) {
+            int left = 0, right = 0;
             int sum = 0;
-            for (int i = 0; i < nums.length; i++) {
-                sum += nums[i];
+            for (int num : nums) {
+                sum += num;
             }
             int target = sum - x;
-            int l = 0, r = 0;
-            int maxLen = Integer.MIN_VALUE;
-            int resSum = 0;
-            // Window is consist of numbers between [l, r)
-            // Use the sum of elements in the window to decide when enlarge or shrink the window
-
-            while (r < nums.length) {
-                // Enlarge the window
-                resSum += nums[r];
-                r++;
-
-                // Shrink the window
-                while (resSum > target && l < r) {
-                    resSum -= nums[l];
-                    l++;
+            int partSum = 0;
+            int res = Integer.MAX_VALUE;
+            while (right < nums.length) {
+                partSum += nums[right++];
+                while (partSum > target && left < right) {
+                    partSum -= nums[left++];
                 }
-
-                if (resSum == target) {
-                    // Update answer
-                    maxLen = Math.max(maxLen, r - l);
+                if (partSum == target) {
+                    res = Math.min(nums.length - (right - left), res);
                 }
             }
-            return maxLen == Integer.MIN_VALUE ? -1 : (nums.length - maxLen);
+            return res == Integer.MAX_VALUE ? -1 : res;
         }
 
     }

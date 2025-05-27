@@ -1,26 +1,23 @@
 package leetcode.editor.cn;
 
-import java.util.*;
-import leetcode.editor.cn.common.*;
-
 public class P209MinimumSizeSubarraySum {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minSubArrayLen(int target, int[] nums) {
-            int l = 0, r = 0;
             int sum = 0;
-            int minLen = Integer.MAX_VALUE;
-            while (r < nums.length) {
-                sum += nums[r];
-                r++;
+            int left = 0, right = 0;
+            int res = Integer.MAX_VALUE;
+            while (right < nums.length) {
+                sum += nums[right++];
+
                 while (sum >= target) {
-                    minLen = Math.min(minLen, r - l);
-                    sum -= nums[l];
-                    l++;
+                    res = Math.min(res, right - left);
+                    sum -= nums[left++];
                 }
+
             }
-            return minLen == Integer.MAX_VALUE ? 0 : minLen;
+            return res == Integer.MAX_VALUE ? 0 : res;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

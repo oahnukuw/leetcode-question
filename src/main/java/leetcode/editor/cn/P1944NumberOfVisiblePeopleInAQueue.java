@@ -1,7 +1,6 @@
 package leetcode.editor.cn;
 
-import java.util.*;
-import leetcode.editor.cn.common.*;
+import java.util.LinkedList;
 
 public class P1944NumberOfVisiblePeopleInAQueue {
 
@@ -9,19 +8,20 @@ public class P1944NumberOfVisiblePeopleInAQueue {
     class Solution {
         public int[] canSeePersonsCount(int[] heights) {
             int n = heights.length;
-            Stack<Integer> s = new Stack<>();
-            int[] res = new int[n];
-            for (int i = n-1; i >= 0; i--) {
-                int height = heights[i];
-                res[i] = 0;
-                while (!s.isEmpty() && s.peek() < height) {
-                    s.pop();
-                    res[i]++;
+            int[] answer = new int[n];
+            LinkedList<Integer> stack = new LinkedList<>();
+            for (int i = n - 1; i >= 0; i--) {
+                int cur = heights[i];
+                while (!stack.isEmpty() && cur > stack.peek()) {
+                    stack.pop();
+                    answer[i]++;
                 }
-                res[i] = s.isEmpty() ? res[i] : res[i] + 1;
-                s.push(height);
+                if (!stack.isEmpty()) {
+                    answer[i]++;
+                }
+                stack.push(cur);
             }
-            return res;
+            return answer;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)

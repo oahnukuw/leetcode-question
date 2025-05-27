@@ -1,32 +1,29 @@
 package leetcode.editor.cn;
 
-import java.util.*;
-import leetcode.editor.cn.common.*;
-
 public class P424LongestRepeatingCharacterReplacement {
 
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int characterReplacement(String s, int k) {
-            // Maintain a window [l,r) that holds the longest same Characters, for example use windowMaxCount to store the value. Then the target is find a longest (r-l-windowMaxCount=k)
-            int[] chars = new int[26];
+            int[] charCount = new int[26];
+            int left = 0, right = 0;
             int windowMaxCount = 0;
-            int l = 0, r = 0;
             int res = 0;
-            while (r < s.length()) {
-                char c = s.charAt(r);
-                int indexR = c - 'A';
-                chars[indexR]++;
-                windowMaxCount = Math.max(windowMaxCount, chars[indexR]);
-                r++;
-                if (r - l - windowMaxCount > k) {
-                    char d = s.charAt(l);
-                    int indexL = d - 'A';
-                    chars[indexL]--;
-                    l++;
+            while (right < s.length()) {
+                char c = s.charAt(right);
+                int index = c - 'A';
+                charCount[index]++;
+                windowMaxCount = Math.max(charCount[index], windowMaxCount);
+                right++;
+
+                if (right - left - windowMaxCount > k) {
+                    char d = s.charAt(left);
+                    int dIndex = d - 'A';
+                    charCount[dIndex]--;
+                    left++;
                 }
-                res = Math.max(res, r - l);
+                res = Math.max(res, right - left);
             }
             return res;
         }

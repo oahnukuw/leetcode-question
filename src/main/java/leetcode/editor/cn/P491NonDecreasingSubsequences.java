@@ -9,32 +9,37 @@ public class P491NonDecreasingSubsequences {
 
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        List<List<Integer>> res = new ArrayList<>();
-        LinkedList<Integer> track = new LinkedList<>();
 
+        List<List<Integer>> res;
+        LinkedList<Integer> track;
         public List<List<Integer>> findSubsequences(int[] nums) {
+            // Repeated Number Select Once
+            res = new ArrayList<>();
+            track = new LinkedList<>();
             backtrack(nums, 0);
             return res;
         }
 
         private void backtrack(int[] nums, int start) {
-            if (track.size() > 1) {
+            if (track.size() >= 2) {
                 res.add(new ArrayList<>(track));
             }
-            HashSet<Integer> levelUsed = new HashSet<>();
+            HashSet<Integer> used = new HashSet<>();
             for (int i = start; i < nums.length; i++) {
-                if (levelUsed.contains(nums[i])) {
+                int cur = nums[i];
+                if (used.contains(cur)) {
                     continue;
                 }
-                if (!track.isEmpty() && track.getLast() > nums[i]) {
+                if (!track.isEmpty() && track.getLast() > cur) {
                     continue;
                 }
-                levelUsed.add(nums[i]);
-                track.add(nums[i]);
+                used.add(cur);
+                track.addLast(cur);
                 backtrack(nums, i + 1);
                 track.removeLast();
             }
         }
+
     }
     // leetcode submit region end(Prohibit modification and deletion)
 

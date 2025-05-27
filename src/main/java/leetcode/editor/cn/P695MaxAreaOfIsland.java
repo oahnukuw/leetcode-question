@@ -13,7 +13,7 @@ public class P695MaxAreaOfIsland {
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
                     if (grid[i][j] == 1) {
-                        dfs(grid, i, j, true);
+                        dfs(grid, i, j);
                         res = Math.max(area, res);
                         area = 0;
                     }
@@ -22,7 +22,7 @@ public class P695MaxAreaOfIsland {
             return res;
         }
 
-        private void dfs(int[][] grid, int i, int j, boolean needCount) {
+        private void dfs(int[][] grid, int i, int j) {
             int m = grid.length, n = grid[0].length;
             if (i < 0 || i >= m || j < 0 || j >= n) {
                 return;
@@ -30,14 +30,12 @@ public class P695MaxAreaOfIsland {
             if (grid[i][j] == 0) {
                 return;
             }
-            if (needCount) {
-                area++;
-            }
+            area++;
             grid[i][j] = 0;
-            dfs(grid, i - 1, j, needCount);
-            dfs(grid, i + 1, j, needCount);
-            dfs(grid, i, j + 1, needCount);
-            dfs(grid, i, j - 1, needCount);
+            dfs(grid, i - 1, j);
+            dfs(grid, i + 1, j);
+            dfs(grid, i, j + 1);
+            dfs(grid, i, j - 1);
         }
     }
     // leetcode submit region end(Prohibit modification and deletion)

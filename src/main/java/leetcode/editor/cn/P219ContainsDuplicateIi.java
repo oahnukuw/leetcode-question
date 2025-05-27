@@ -7,19 +7,16 @@ public class P219ContainsDuplicateIi {
     // leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean containsNearbyDuplicate(int[] nums, int k) {
-            int l = 0, r = 0;
+            int left = 0, right = 0;
             HashSet<Integer> window = new HashSet<>();
-            while (r < nums.length) {
-                // Whether window has two same elements
-                if (window.contains(nums[r])) {
+            while (right < nums.length) {
+                if (window.contains(nums[right])) {
                     return true;
                 }
-                window.add(nums[r]);
-                r++;
+                window.add(nums[right++]);
 
-                if (r - l > k) {
-                    window.remove(nums[l]);
-                    l++;
+                if (right - left > k) {
+                    window.remove(nums[left++]);
                 }
             }
             return false;
